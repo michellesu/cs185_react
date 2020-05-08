@@ -109,6 +109,7 @@ export class Guestbook extends Component {
 		// retrieve its data
 		ref.on('value', snapshot => {
             let items = snapshot.val();
+            console.log(items)
             let newState = [];
             for (let item in items) {
                 
@@ -227,7 +228,8 @@ export class Guestbook extends Component {
 
                 <div className="posts">
                     <h2><b>Posts</b></h2>
-                        {this.state.items.reverse().map((item) => {
+                        {console.log(this.state.items)}
+                        {this.state.items.map((item, i) => {
                             return (
                                 <div className="post" key={item.id}>
                                     <div className="post-content"> 

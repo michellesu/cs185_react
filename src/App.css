@@ -219,7 +219,7 @@ body{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 18px;
 
-  animation: 1s ease-out 0s 1 fadein;
+  /* animation: 1s ease-out 0s 1 fadein; */
 }
 .form-body {
   margin: 2em 2em 2em 2em;
@@ -264,10 +264,10 @@ textarea {
   background-color: rgb(38,79,161);
 }
 
-@keyframes fadein {
+/* @keyframes fadein {
   0%   { opacity: 0; }
   100% { opacity: 1; }
-}
+} */
 
 
 .posts {

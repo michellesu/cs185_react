@@ -3,6 +3,8 @@ import Home from './Home'
 import Images from './Images'
 import Videos from './Videos'
 import Projects from './Projects'
+import Guestbook from './Guestbook';
+
 
 
 export class Body extends Component {
@@ -14,8 +16,15 @@ export class Body extends Component {
 			return <Images/>
 		else if(activeTab == 3)
 			return <Videos/>
-		else
+		else if(activeTab == 4)
 			return <Projects/>
+		else
+			return <Guestbook data={this.props.data} 
+			name={this.props.name} 
+			description={this.props.description}
+			message={this.props.message} 
+			privacy={this.props.privacy}
+			email={this.props.email} />
   	}
 
   	render() {

@@ -206,6 +206,100 @@ body{
     border-radius: 5px;
 }
 
+.guestbook-body {
+  /* display: grid; */
+}
+.form {
+  float:left;
+  width: 45%;
+
+  background-color: rgb(228, 236, 237);
+  margin: 2.5em;
+  margin-left: 3em;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 18px;
+
+  animation: 1s ease-out 0s 1 fadein;
+}
+.form-body {
+  margin: 2em 2em 2em 2em;
+  line-height: 35px;
+}
+.form-body input {
+  /* border: 2px solid rgb(114, 116, 125,0.8);
+  border-radius: 3px; */
+  /* line-height: 20px; */
+}
+input[type="text"] {
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
+  margin-top: 0.4em;
+
+  border: 2px solid rgb(114, 116, 125,0.8);
+  border-radius: 3px;
+}
+textarea {
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
+  border: 2px solid rgb(114, 116, 125,0.8);
+  border-radius: 3px;
+  margin-top: 0.4em;
+
+  border: 2px solid rgb(114, 116, 125,0.8);
+  border-radius: 3px;
+}
+.submit-button {
+  font-family: 'Raleway', sans-serif;
+  font-size: 17px;
+  background-color: rgb(54,116,224);
+  color: white;
+  border: none;
+  width: 102px;
+  height: 50px;
+  margin-top: 1em;
+  border-radius: 3px;
+  
+}
+.submit-button:hover {
+  background-color: rgb(38,79,161);
+}
+
+@keyframes fadein {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+
+.posts {
+  /* enable scroll when posts exceed height */
+  overflow-y: scroll;
+  /* set height to 80% of viewport height/browser height */
+  height: 78vh;
+  margin-left: 55%;
+  
+  margin-right: 3em;
+
+  /* animation: 2s ease-out 0s 1 fadein; */
+}
+.post {
+  /* animation: 2s ease-out 0s 1 fadein; */
+
+  background: rgb(219, 227, 232);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(29, 29, 29, 0.19);
+  border-radius: 10px;
+}
+.post-content {
+  /* animation: 2s ease-out 0s 1 fadein; */
+  margin: 1em;
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+.post-time {
+  color: rgb(82, 29, 167);
+}
+.post-description {
+  color: rgb(96, 96, 96);
+}
 
 .App {
   text-align: center;

@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 import './App.css'
 import Body from './Components/Body'
 import TabList from './Components/TabList'
-// import ScrollButton from './Components/ScrollButton'
 
 export class App extends Component {
-  	constructor() {
-		super();
+  	constructor(props) {
+		super(props);
 		this.state = {
 			// specify id of first active tab, can also do - activeTab: 'Home'
 			activeTab: 1,
@@ -43,16 +42,12 @@ export class App extends Component {
   	}
 
   	scrollToTop = () => {
-		// console.log(window.pageYOffset);
 		window.scrollTo({
 			top: 0,
 			behavior: "smooth"
     	});
-  	}
+	  }
 
-
-
-  
 	render() {
 		const tabs = [
 		{
@@ -70,6 +65,10 @@ export class App extends Component {
 		{
 			id: 4,
 			title: 'Projects'
+		},
+		{
+			id: 5,
+			title: 'Guest Book'
 		}
 		]
 
@@ -84,7 +83,6 @@ export class App extends Component {
 
 			<div className="main-body">
 				<Body activeTab={this.state.activeTab} />
-				
 				{/* conditional statement to display back to top button or not */}
 				{this.state.displayButton?
 				<button className="backToTopButton" onClick={this.scrollToTop} >
@@ -92,7 +90,7 @@ export class App extends Component {
 				</button> : null
 				}
 			</div>
-			</div>
+		</div>
 		);
     
   	}

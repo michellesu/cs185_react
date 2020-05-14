@@ -69,6 +69,10 @@ export class App extends Component {
 		{
 			id: 5,
 			title: 'Guest Book'
+		},
+		{
+			id: 6,
+			title: 'Movies'
 		}
 		]
 
@@ -82,13 +86,14 @@ export class App extends Component {
 			</div>
 
 			<div className="main-body">
-				<Body activeTab={this.state.activeTab} />
+				<Body activeTab={this.state.activeTab}
+				displayButton={this.state.displayButton} />
 				{/* conditional statement to display back to top button or not */}
-				{this.state.displayButton?
+				{/* {this.state.displayButton?
 				<button className="backToTopButton" onClick={this.scrollToTop} >
 					Back To Top
 				</button> : null
-				}
+				} */}
 			</div>
 		</div>
 		);

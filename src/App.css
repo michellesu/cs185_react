@@ -228,7 +228,8 @@ body.modal-open {
 	border-radius: 2px;
 	/* padding: 13%; */
 	padding-bottom: 3%;
-	padding-top: 15%;
+	margin-top: 12%;
+	/* padding-top: 15%; */
 	/* padding-left: 15%;
 	padding-right: 15%; */
 	padding-left: auto;

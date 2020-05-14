@@ -4,6 +4,7 @@ import Images from './Images'
 import Videos from './Videos'
 import Projects from './Projects'
 import Guestbook from './Guestbook';
+import Movies from './Movies';
 
 
 
@@ -18,6 +19,8 @@ export class Body extends Component {
 			return <Videos/>
 		else if(activeTab == 4)
 			return <Projects/>
+		else if (activeTab == 6)
+			return <Movies/>
 		else
 			return <Guestbook data={this.props.data} 
 			name={this.props.name} 

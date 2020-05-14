@@ -172,8 +172,8 @@ body{
 	height: 100%;
 	background: rgba(0,0,0,0.7);
     display: none;
-
 }
+
 #modal.showmodal {
     display: flex;
     /* to make caption appear under image, instead of next to it */
@@ -196,14 +196,65 @@ body{
     max-height: 60%;
     border: 6px white solid;
     border-radius: 5px;
-    
 }
+
 #modal video {
     display: block;
 	max-width: 80%;
 	max-height: 65%;
 	border: 6px white solid;
     border-radius: 5px;
+}
+
+#movie-modal {
+	background-color: white;
+	border-radius: 5px;
+	width: 40%;
+}
+body.modal-open {
+	/* height: 100vh; */
+	overflow-y: hidden;
+	/* position: fixed;  */
+}
+
+#modal.showmodal-movie {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#movie-modal img {
+	border: none;
+	border-radius: 2px;
+	/* padding: 13%; */
+	padding-bottom: 3%;
+	padding-top: 15%;
+	/* padding-left: 15%;
+	padding-right: 15%; */
+	padding-left: auto;
+	padding-right: auto;
+
+	/* margin:auto; */
+	/* border: 0; */
+	/* float: left; */
+	border-radius: 2px;
+	align-items: center;
+	justify-content: center;
+}
+#movie-modal p {
+	/* float: right; */
+	color: black;
+	line-height: 1.5em;
+	/* padding: 4%; */
+	/* margin: 13%; */
+	/* padding-left: auto;
+	padding-right: auto; */
+	padding-left: 19%;
+	padding-right: 19%;
+	padding-bottom: 9%;
+	padding-top: 0%;
+	align-items: center;
+	justify-content: center;
 }
 
 .guestbook-body {

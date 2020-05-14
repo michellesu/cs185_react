@@ -92,7 +92,7 @@ export class Movies extends Component {
         for (const [index, value] of imdbid.entries()) {
             let id = imdbid[index];
             console.log("id=", id);
-            let url = 'http://www.omdbapi.com/?apikey=86818d0d&i='+id;
+            let url = 'https://www.omdbapi.com/?apikey=86818d0d&i='+id;
             try {
                 let response = await axios.get(url);
                 console.log(response.data); 

@@ -5,7 +5,8 @@ import Videos from './Videos'
 import Projects from './Projects'
 import Guestbook from './Guestbook';
 import Movies from './Movies';
-
+import AddMovies from './AddMovies';
+import CreateList from './CreateList'
 
 
 export class Body extends Component {
@@ -19,15 +20,20 @@ export class Body extends Component {
 			return <Videos/>
 		else if(activeTab == 4)
 			return <Projects/>
+		else if (activeTab == 7)
+			return <AddMovies/>
+		else if (activeTab == 8)
+			return <CreateList/>
 		else if (activeTab == 6)
 			return <Movies/>
 		else
-			return <Guestbook data={this.props.data} 
-			name={this.props.name} 
-			description={this.props.description}
-			message={this.props.message} 
-			privacy={this.props.privacy}
-			email={this.props.email} />
+			return <Guestbook/>
+			// return <Guestbook data={this.props.data} 
+			// name={this.props.name} 
+			// description={this.props.description}
+			// message={this.props.message} 
+			// privacy={this.props.privacy}
+			// email={this.props.email} />
   	}
 
   	render() {

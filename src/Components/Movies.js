@@ -244,18 +244,14 @@ export class Movies extends Component {
     }
 
     handleDisplayChange(e) {
-        // let img = document.getElementById('modal-img');
-        alert("handle display change")
+        // alert("handle display change")
         this.setState({
             display: e.target.value
         }, () => { this.displayList() } )
     }
 
     addToList(e) {
-    // addToList = () => {
-        
-        // alert('add to list = ' + list + ', movie = ' + title);
-        alert('add to list = ' + this.state.list + ', movie = ' + this.state.title);
+        // alert('add to list = ' + this.state.list + ', movie = ' + this.state.title);
 
         // get key of the movie
         let key = '';
@@ -272,17 +268,12 @@ export class Movies extends Component {
         console.log("key = ", key);
 
         let listref = firebase.database().ref("movielists");
-        // let topush = false;
 
         let thing;
 
         listref.on('value', snapshot2 => {
             let things = snapshot2.val();
             for (thing in things) {
-                // alert('in for loop')
-                // let ref = firebase.database().ref('movielists/'+thing+'/movies');
-                // let ref = firebase.database().ref('movielists/'+thing+'/movies');
-
                 if(things[thing].name == this.state.list) {
                     break;
                 }
@@ -290,7 +281,7 @@ export class Movies extends Component {
 
         })
 
-        alert('pushing');
+        // alert('pushing');
         let mref = firebase.database().ref('movielists/'+thing+'/movies');
         mref.push(key);
 
@@ -314,7 +305,7 @@ export class Movies extends Component {
     // display movies in a list
     // displayList(listName) {
     displayList() {
-        alert("list clicked!!! "+this.state.display);
+        // alert("list clicked!!! "+this.state.display);
 
         let movies = [];
 
@@ -322,9 +313,6 @@ export class Movies extends Component {
         listref.on('value', snapshot => {
             let items = snapshot.val();
             for (let item in items) {
-                // console.log(items[item])
-
-                // alert('inside for loop!!!');
                 if(this.state.display == items[item].name) {
                     let list = items[item].movies;
                     for (let m in list) {
@@ -332,7 +320,6 @@ export class Movies extends Component {
                         movies.push(items[item].movies[m]);
                     }
                 }
-
 
                 // var ratings = items[item].moviedata.Ratings;
                 // ratings.map((rating, index) => {
@@ -346,6 +333,7 @@ export class Movies extends Component {
         //     item.id
         // }
         let displayed = []
+        let add = true;
 
         // dynamically remove movies that were dynamically added
         var toremoveContainer = document.getElementsByClassName('img-container');
@@ -365,10 +353,18 @@ export class Movies extends Component {
                 let things = snapshot2.val();
                 for( let thing in things) {
                     if(thing == i){
-                        alert("match")
-
-                        // **********************************
+                        // alert("match")
+                        
+                        
                         let movie = things[thing].moviedata;
+                        // displayed.map((d) => {
+                        //     if(d == movie.imdbid) {
+                        //         add = false;
+                        //         break;
+                        //     }
+                        // })
+                        // **********************************
+                        displayed.push(things[thing].imdbid);
 
                         var movieContent = document.createElement("div");
                         movieContent.className = "img-child";
@@ -423,7 +419,6 @@ export class Movies extends Component {
                 let movie = items[item].moviedata;
                 // if(movie.Title == this.s) {
                 if(movie.Title.toLowerCase() == this.state.search.toLowerCase()) {
-                    // alert('this.state.search'+ this.state.search)
 
                     // create movie container
                     var movieContainer = document.createElement("div");

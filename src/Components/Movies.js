@@ -557,10 +557,10 @@ export class Movies extends Component {
             document.body.removeChild(toremoveContainer[0]);
         }
         // dynamically remove lists that were dynamically added
-        var toremoveContainer2 = document.getElementsByClassName('list-container');
-        if(toremoveContainer2[0] != null){
-            document.body.removeChild(toremoveContainer2[0]);
-        }
+        // var toremoveContainer2 = document.getElementsByClassName('list-container');
+        // if(toremoveContainer2[0] != null){
+        //     document.body.removeChild(toremoveContainer2[0]);
+        // }
     }
 
 

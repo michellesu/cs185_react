@@ -1,5 +1,6 @@
 body{
   background-color: rgb(202, 235, 235);
+  /* background-color:  white; */
 }
 /* nav bar */
 .nav-bar {
@@ -209,7 +210,10 @@ body{
 #movie-modal {
 	background-color: white;
 	border-radius: 5px;
-	width: 40%;
+  /* width: 40%; */
+  /* height: 90%;
+  width: 60%; */
+  display:flex;
 }
 body.modal-open {
 	/* height: 100vh; */
@@ -232,15 +236,18 @@ body.modal-open {
 	/* padding-top: 15%; */
 	/* padding-left: 15%;
 	padding-right: 15%; */
-	padding-left: auto;
-	padding-right: auto;
+	/* padding-left: auto;
+	padding-right: auto; */
 
 	/* margin:auto; */
 	/* border: 0; */
-	/* float: left; */
+	float: left;
 	border-radius: 2px;
 	align-items: center;
-	justify-content: center;
+  justify-content: center;
+  height: 40%;
+
+  margin: 3em;
 }
 #movie-modal p {
 	/* float: right; */
@@ -250,17 +257,17 @@ body.modal-open {
 	/* margin: 13%; */
 	/* padding-left: auto;
 	padding-right: auto; */
-	padding-left: 19%;
-	padding-right: 19%;
-	padding-bottom: 9%;
-	padding-top: 0%;
+	/* padding-left: 19%;
+  padding-right: 19%; */
+  /* margin-left: 10%; */
+	/* padding-bottom: 9%;
+	padding-top: 0%; */
 	align-items: center;
-	justify-content: center;
+  justify-content: center;
+  
+  margin-top: 2em;
 }
 
-.guestbook-body {
-  /* display: grid; */
-}
 .form {
   float:left;
   width: 45%;
@@ -315,6 +322,115 @@ textarea {
 .submit-button:hover {
   background-color: rgb(38,79,161);
 }
+
+.list-button {
+  /* font-family: 'Raleway', sans-serif; */
+  font-style: bold;
+  font-size: 17px;
+  /* background-color: rgb(83,164,81); */
+  background-color: rgb(54,116,224);
+  border-color: rgb(54,116,224);
+  color: white;
+  border: none;
+  margin-left: 2em;
+  margin-right: 2em;
+  margin-top: 1.5em;
+  margin-bottom: 1em;
+
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 0.7em;
+  padding-bottom: 0.7em;
+
+  border-radius: 3px;
+  height: 3em;
+
+  /* width: 11em; */
+  
+}
+.list-button:hover {
+  /* background-color: rgb(67,134,66); */
+  background-color: rgb(38,79,161);
+}
+.dropdown{
+  background-color: white;
+  /* background-color: rgb(202, 235, 235); */
+  border-radius: 3px;
+  /* width: 0px; */
+}
+.dropdown-item {
+  /* background-color: white; */
+  color: black;
+  font-style: bold;
+  text-decoration: none;
+  font-size: 17px;
+  line-height: 28px;
+  text-align: center;
+  
+  /* margin: 2em; */
+  /* width: 12em; */
+
+  /* border-radius: 3px; */
+}
+.dropdown-item a{
+  /* background-color: white; */
+  text-decoration: none;
+  font-style: bold;
+  color: black;
+  padding-left: 0.5em;
+  line-height: 30px;
+  margin-top: 1em;
+
+  /* width: 11em; */
+}
+
+
+.delete-button {
+  /* font-family: 'Raleway', sans-serif; */
+  font-style: bold;
+  font-size: 17px;
+  /* background-color: rgb(83,164,81); */
+  background-color: rgb(224, 54, 54);
+  color: white;
+  border: none;
+  margin-left: 1em;
+  margin-right: 1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 0.7em;
+  padding-bottom: 0.7em;
+
+  border-radius: 3px;
+  align-items: center;
+  justify-content: center;
+  height: 3em;
+}
+.delete-button:hover {
+  /* background-color: rgb(67,134,66); */
+  background-color: rgb(161, 38, 38);
+}
+
+.searchform {
+  /* float:left; */
+  width: 45%;
+  background-color: rgb(228, 236, 237);
+  margin: 3em;
+  /* margin-left: 3em; */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 18px;
+}
+.searchform-body {
+  /* margin: 2em 2em 2em 2em; */
+  padding: 2em;
+  line-height: 35px;
+}
+.list-container {
+  margin: 2em;
+}
+
 
 /* @keyframes fadein {
   0%   { opacity: 0; }

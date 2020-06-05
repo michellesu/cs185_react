@@ -7,6 +7,7 @@ import Guestbook from './Guestbook';
 import Movies from './Movies';
 import AddMovies from './AddMovies';
 import CreateList from './CreateList'
+import Graph from './Graph'
 
 
 export class Body extends Component {
@@ -20,12 +21,14 @@ export class Body extends Component {
 			return <Videos/>
 		else if(activeTab == 4)
 			return <Projects/>
+		else if (activeTab == 6)
+			return <Movies/>
 		else if (activeTab == 7)
 			return <AddMovies/>
 		else if (activeTab == 8)
 			return <CreateList/>
-		else if (activeTab == 6)
-			return <Movies/>
+		else if (activeTab == 9)
+			return <Graph/>
 		else
 			return <Guestbook/>
 			// return <Guestbook data={this.props.data} 

@@ -120,6 +120,7 @@ export class Graph extends Component {
             .data(obj_links)
             .join('line')
             .attr('stroke-width', d => Math.sqrt(d.value))
+            .attr('path-length', 5)
 
         const color = (node) => {
             if (node.group == 1) // it's a movie
@@ -159,10 +160,10 @@ export class Graph extends Component {
             .attr('r', radius)
             .attr('fill', color)
             .call(this.drag(simulation))
-            .attr('x', width/2)
-            .attr('y', height/2)
-            .attr('width', 50)
-            .attr('height', 50)
+            // .attr('x', width/2)
+            // .attr('y', height/2)
+            // .attr('width', 50)
+            // .attr('height', 50)
             // .on('mouseover', 
             //     function(e) {
             //         e.currentTarget
@@ -198,10 +199,8 @@ export class Graph extends Component {
             .attr('r', radius)
             .attr('fill', color)
             .call(this.drag(simulation))
-            .attr('x', width/2)
-            .attr('y', height/2)
-            .attr('width', 50)
-            .attr('height', 50)
+            .attr('x', width/10)
+            .attr('y', height/10)
             .text(d => d.value)
             // .attr('opacity', showText)
         
@@ -215,8 +214,8 @@ export class Graph extends Component {
             .attr('xlink:href', d => d.imgSrc)
             .attr('fill', color)
             .call(this.drag(simulation))
-            .attr('x', width/2)
-            .attr('y', height/2)
+            .attr('x', width/10)
+            .attr('y', height/10)
             .attr('width', 50)
             .attr('height', 50)
 

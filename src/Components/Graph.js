@@ -100,8 +100,8 @@ export class Graph extends Component {
 
 
     chart(nodes, links) {
-        const width = 800;
-        const height = 600;
+        const width = 1000;
+        const height = 800;
 
         // nodes.map((d, index) => console.log(d))
         // links.map((d, index) => console.log(d))
@@ -122,17 +122,11 @@ export class Graph extends Component {
             .attr('stroke-width', d => Math.sqrt(d.value))
             .attr('path-length', 5)
 
-        const color = (node) => {
-            if (node.group == 1) // it's a movie
-                return d3.color('slateblue')
-                // return 'url(#image)'
-            return d3.color('pink')
-        }
 
         const radius = (node) => {
             if (node.group == 1)
                 return 30;
-            return 10;
+            return 14;
         }
 
         const simulation = d3.forceSimulation(obj_nodes)
@@ -140,112 +134,65 @@ export class Graph extends Component {
             .force('charge', d3.forceManyBody())
             .force('center', d3.forceCenter(width / 2, height / 2));
             // center of mass
-        
-        // let defs =  svg.append('defs')
-        // let pattern = defs.append('pattern')
-        //     .attr('height', 1)
-        //     .attr('width', 1)
-        //     .attr('patternUnits', 'userSpaceOnUse')
-        
-        // let img = pattern.append('image')
-        //     .data(obj_nodes)    
-        //     .attr('xlink:href', d => d.imgSrc)
 
+
+        // add def - needed to use fill with image
+        const defs = svg.append('defs')
+        
+        // add pattern for each movie
+        data.nodes.map((d, index) => {
+
+            if(d.group == 1) { // is a movie
+                defs.append('pattern')
+                    .attr('id', 'movie-poster'+ index)
+                    .attr('width', 1)
+                    .attr('height', 1)
+                    .append("image")
+                    .attr("xlink:href", d.imgSrc)
+                    .attr('width', 60)
+                    .attr('height', 100)
+                    .attr('x', 0)
+                    .attr('y', -30)
+            }
+        })
+
+        // create circles for nodes
         const node = svg.append('g')
+            .attr('id', 'nodes')
             .attr('stroke', '#fff')
             .attr('stroke-width', 1.5)
             .selectAll('circle')
             .data(obj_nodes)
             .join('circle')
             .attr('r', radius)
-            .attr('fill', color)
+            .style('fill', function(d) {
+                if (d.group == 1) {
+                    return 'url(#movie-poster'+ d.index +')';
+                }
+                return d3.color('pink')
+            })
+            .on('mouseover', function(d) {
+                if(d.group == 2) { // for showing actors onhover
+                    // return d.value
+                    // alert(d.value)
+                    console.log(d.value)
+                    // console.log(d3.transform(d3.select(this.parentNode).attr("transform")).translate)
+                    svg.append('text')
+                        .attr('stroke', 'grey')
+                        .text(d.value)
+                        .attr('x', d3.select(this).attr("cx") + 10)
+                        .attr('y', d3.select(this).attr("cy") + 10)
+                }
+            })
+            .on('mouseout', function(d) {
+                if(d.group == 2) {
+                    console.log(d.value)
+                    console.log("left!!!")
+                    d3.select('text').remove();
+                }
+            })
             .call(this.drag(simulation))
-            // .attr('x', width/2)
-            // .attr('y', height/2)
-            // .attr('width', 50)
-            // .attr('height', 50)
-            // .on('mouseover', 
-            //     function(e) {
-            //         e.currentTarget
-            //     }
-            //     d => svg.append('g')
-            //     .attr('stroke', 'grey')
-            //     .selectAll('text')
-            //     .attr('fill', color)
-            //     .call(this.drag(simulation))
-            //     .text(d.value))
         
-            // node[0].map((d, index) => {
-            //     console.log(d)
-            // })
-            // node[0].addEventListener('click', function(e) {
-            //     e.currentTarget.setAttribute('fill', 'black')
-            // })
-            // console.log(node)
-            // const showText = (d2) => {
-            //     if(d2.group == 2) {
-            //         for i in node((d, index) => {
-                        
-            //         }) 
-            //     }
-            //     return 0
-            // }
-
-        const node2 = svg.append('g')
-            .attr('stroke', 'grey')
-            .selectAll('text')
-            .data(obj_nodes)
-            .join('text')
-            .attr('r', radius)
-            .attr('fill', color)
-            .call(this.drag(simulation))
-            .attr('x', width/10)
-            .attr('y', height/10)
-            .text(d => d.value)
-            // .attr('opacity', showText)
-        
-            
-        
-        const node3 = svg.append('g')
-            .attr('stroke', 'grey')
-            .selectAll('image')
-            .data(obj_nodes)
-            .join('image')
-            .attr('xlink:href', d => d.imgSrc)
-            .attr('fill', color)
-            .call(this.drag(simulation))
-            .attr('x', width/10)
-            .attr('y', height/10)
-            .attr('width', 50)
-            .attr('height', 50)
-
-        // function mouseout(d) { node.style('opacity', 0); }
-        // function mouseover(d) { node.style('opacity', 1); }
-
-        // console.log(node)
-        // const images = node.append('image')
-        //     .attr('xlink:href', function(d) { return d.imgSrc} )
-        //     .attr('height', 50)
-        //     .attr('width', 50)
-        
-        // const text = node.append('text')
-        //     .attr('class', 'nodetext')
-        //     .text(function(d) { return d.value} )
-
-        // const images = node.append('image')
-        //     .attr('xlink:href', img)
-        //     .attr("height", 50)
-        //     .attr("width", 50);
-            // .text(function (d){
-            //     if(d.group == 2){
-            //         return d.value
-            //     }
-            // })
-            // .on('mouseout', function(d){
-            //     node.style('opacity', 0);
-            // })
-            // .attr('fill', d3.color('steelblue'))
-            // .attr('r', 20)
 
         
         simulation.on('tick', () => {
@@ -257,15 +204,9 @@ export class Graph extends Component {
             node
                 .attr('cx', d => d.x)
                 .attr('cy', d => d.y)
-            // node2
-            //     .attr('cx', d => d.x)
-            //     .attr('cy', d => d.y)
-            node3
-                .attr('cx', d => d.x)
-                .attr('cy', d => d.y)
+            
         });
 
-        // return svg.images();
         return svg.node();
     }
 
@@ -291,8 +232,8 @@ export class Graph extends Component {
         function dragEnded(d) {
             if(!d3.event.active) simulation.alphaTarget(0);
             // undo the force you applied to the node previously
-            d.fx = null;
-            d.fy = null;
+            // d.fx = null;
+            // d.fy = null;
         }
 
         return d3.drag()
@@ -300,7 +241,6 @@ export class Graph extends Component {
             .on('drag', dragged)
             .on('end', dragEnded)
     }
-
 
 
     render() {
